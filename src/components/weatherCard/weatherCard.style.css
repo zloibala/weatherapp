@@ -1,22 +1,24 @@
 .card {
-  display: flex;
-  flex-direction: column;
   margin-top: 30px;
 }
 .info {
-  /* font-size: 0.8rem;
-  line-height: 1rem; */
   text-transform: capitalize;
   color: white;
   font-family: "Gill Sans", sans-serif;
   font-weight: lighter;
-}
-.temperature {
-  font-size: 2rem;
+  padding: 2px;
 }
 
-.box {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+@media screen and (max-width: 900px) {
+  .weather-card {
+    width: 100%;
+    height: 70vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .weather-card {
+    width: 100%;
+    height: 93vh;
+  }
 }
