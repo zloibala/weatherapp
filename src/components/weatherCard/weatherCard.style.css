@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.info {
+  /* font-size: 0.8rem;
+  line-height: 1rem; */
+  text-transform: capitalize;
+  color: white;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: lighter;
+}
+.temperature {
+  font-size: 2rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
