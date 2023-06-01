@@ -9,7 +9,7 @@ const WeatherCard = (props) => {
     <div className="card">
       <div className="info">
         <p> City: {city} </p>
-        <p> Temperature:{temperature}</p>
+        <p> Temperature:{temperature} C</p>
         <p> Description: {description}</p>
         <p> Feels like:{feelsLikeTemp}</p>
         <p> Humidity: {humidity}</p>

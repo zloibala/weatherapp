@@ -39,11 +39,15 @@ const WeatherApp = () => {
       <div className="continer">
         <h3>Enter the city to check the weather</h3>
         <input
+          variant="outlined"
           placeholder="Enter the city"
           onChange={onChangeHandler}
           value={searchCity}
         />
-        <button onClick={onClickHandler}> Get the weather</button>
+        <button onClick={onClickHandler} variant="outlined">
+          {" "}
+          Get the weather
+        </button>
         {city && (
           <WeatherCard
             city={city}
