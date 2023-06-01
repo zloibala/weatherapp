@@ -1,5 +1,5 @@
 import "./weatherApp.style.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherCard from "../weatherCard/WeatherCard";
 
@@ -10,14 +10,21 @@ const WeatherApp = () => {
   const [humidity, setHumidity] = useState(0);
   const [wind, setWind] = useState(0);
   const [searchCity, setSearchCity] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Chicago");
 
-  const onClickHandler = async () => {
+  //square bracket for dependencies
+  // when square brackets are empty it will run once at the beggining
+  useEffect(() => {
+    console.log("works");
+    getSearchCity();
+  }, [city]);
+
+  const getSearchCity = async () => {
     try {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=imperial&appid=355cf3bff397cfe55bf144d10da9b2d8`
       );
-      console.log("good", response);
+
       //set data
       setTemperature(response.data.main.temp);
       setDescription(response.data.weather[0].description);
@@ -27,6 +34,7 @@ const WeatherApp = () => {
       setCity(response.data.name);
     } catch (error) {
       console.log("err", error);
+      alert(" Please, write the name of the City only");
     }
   };
 
@@ -44,8 +52,7 @@ const WeatherApp = () => {
           onChange={onChangeHandler}
           value={searchCity}
         />
-        <button onClick={onClickHandler} variant="outlined">
-          {" "}
+        <button onClick={getSearchCity} variant="outlined">
           Get the weather
         </button>
         {city && (
