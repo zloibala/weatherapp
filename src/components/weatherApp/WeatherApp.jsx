@@ -11,6 +11,7 @@ const WeatherApp = () => {
   const [wind, setWind] = useState(0);
   const [searchCity, setSearchCity] = useState("");
   const [city, setCity] = useState("Chicago");
+  const [todaysDate, setTodaysDate] = useState(new Date());
 
   //square bracket for dependencies
   // when square brackets are empty it will run once at the beggining
@@ -20,6 +21,7 @@ const WeatherApp = () => {
   }, [city]);
 
   const getSearchCity = async () => {
+    const todaysDate = new Date();
     try {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=imperial&appid=355cf3bff397cfe55bf144d10da9b2d8`
@@ -34,7 +36,7 @@ const WeatherApp = () => {
       setCity(response.data.name);
     } catch (error) {
       console.log("err", error);
-      alert(" Please, write the name of the City only");
+      //   alert(" Please, write the name of the City only");
     }
   };
 
@@ -45,6 +47,8 @@ const WeatherApp = () => {
   return (
     <div class="center">
       <div className="continer">
+        <p> Current time {todaysDate.toLocaleString()}</p>
+        <p> Happy {getDayofTheWeek()}</p>
         <h3>Enter the city to check the weather</h3>
         <input
           variant="outlined"
@@ -52,6 +56,7 @@ const WeatherApp = () => {
           onChange={onChangeHandler}
           value={searchCity}
         />
+
         <button onClick={getSearchCity} variant="outlined">
           Get the weather
         </button>
