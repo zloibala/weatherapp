@@ -2,6 +2,7 @@ import "./weatherApp.style.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherCard from "../weatherCard/WeatherCard";
+import { getDayofTheWeek } from "../../utilities/functions";
 
 const WeatherApp = () => {
   const [temperature, setTemperature] = useState(0);
