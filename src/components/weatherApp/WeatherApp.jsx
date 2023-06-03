@@ -16,10 +16,10 @@ const WeatherApp = () => {
 
   //square bracket for dependencies
   // when square brackets are empty it will run once at the beggining
-  useEffect(() => {
-    console.log("works");
-    getSearchCity();
-  }, [city]);
+  //   useEffect(() => {
+  //     console.log("works");
+  //     getSearchCity();
+  //   }, [city]);
 
   const getSearchCity = async () => {
     const todaysDate = new Date();
