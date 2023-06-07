@@ -87,7 +87,7 @@ button:hover {
     width: 50%;
     height: 70vh;
   }
-/* 
+
   input {
     height: 2rem;
   }
@@ -95,7 +95,7 @@ button:hover {
   button {
     height: 2rem;
   }
-} */
+}
 
 @media screen and (max-width: 600px) {
   .weather-container {
